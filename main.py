@@ -112,23 +112,46 @@ def manage_customers(customers:List):
 
 
 # TODO: Implementirajte funkciju za prikaz ponuda.
-def display_offers(offers):
+def display_offers(offers:List):
     """
     Display all offers, offers for a selected month, or a single offer by ID.
     """
     # Omogućite izbor pregleda: sve ponude, po mjesecu ili pojedinačna ponuda
-
-
-
-
     # Prikaz relevantnih ponuda na temelju izbora
-    pass
+    print (f'\nUPRAVLJANJE PONUDAMA:\n')
+    print (f'1. Prikaz svih ponuda')
+    print (f'2. Prikaz ponuda po mjesecu')
+    print (f'3. Prikaz ponude po ID')
+    print()
+    offers_list = offers
+    choice = int(input ('Unesite odabir (npr. 1 ili 2): '))
+    match choice:
+        case 1:
+            for offer in offers_list:
+                print_offer(offer)
+        case 2:
+            datum = input('Unesite datum ponude koju zelite pregledati (u formatu: "2024-11-02"): ')
+            for offer in offers:
+                if offer['date'] == datum:
+                    print_offer(offer)
+        case 3:
+            ponuda_br = int (input('Unesite broj ponude koju zelite pregledati: '))
+            for i, offer in enumerate (offers_list):
+                if i == ponuda_br-1:
+                    print_offer(offer)
+
+
+
+
+    
+
 
 
 # Pomoćna funkcija za prikaz jedne ponude
 def print_offer(offer):
+
     """Display details of a single offer."""
-    print(f"Ponuda br: {offer['offer_number']}, Kupac: {offer['customer']['name']}, Datum ponude: {offer['date']}")
+    print(f"Ponuda br: {offer['offer_number']}, Kupac: {offer['customer']}, Datum ponude: {offer['date']}")
     print("Stavke:")
     for item in offer["items"]:
         print(f"  - {item['product_name']} (ID: {item['product_id']}): {item['description']}")
