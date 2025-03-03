@@ -48,5 +48,10 @@
         "name": "Bright Ideas",
         "email": "info@brightideas.com",
         "vat_id": "90123456789"
+    },
+    {
+        "name": "Mario Vojic d.o.o. ",
+        "email": "mario.vojic@dirh.hr",
+        "vat_id": "123456"
     }
 ]

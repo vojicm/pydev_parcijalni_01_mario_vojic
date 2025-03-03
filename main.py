@@ -1,4 +1,5 @@
 import json
+from typing import List, Dict
 
 
 OFFERS_FILE = "offers.json"
@@ -25,36 +26,89 @@ def save_data(filename, data):
 
 
 # TODO: Implementirajte funkciju za kreiranje nove ponude.
-def create_new_offer(offers, products, customers):
+def create_new_offer(offers, products, customers: List):
     """
     Prompt user to create a new offer by selecting a customer, entering date,
     choosing products, and calculating totals.
     """
     # Omogućite unos kupca
+    
+
+
     # Izračunajte sub_total, tax i total
     # Dodajte novu ponudu u listu offers
     pass
 
 
 # TODO: Implementirajte funkciju za upravljanje proizvodima.
-def manage_products(products):
+def manage_products(products:List):
     """
     Allows the user to add a new product or modify an existing product.
     """
     # Omogućite korisniku izbor između dodavanja ili izmjene proizvoda
     # Za dodavanje: unesite podatke o proizvodu i dodajte ga u listu products
     # Za izmjenu: selektirajte proizvod i ažurirajte podatke
-    pass
+    print (f'\nUPRAVLJANJE PRIZVODIMA:\n')
+    print (f'1. Dodavanje novog proizvoda')
+    print (f'2. Izmjena podataka proizvoda')
+    print()
+    list_products = products
+    choice = int(input ('Unesite odabir (1 ili 2): '))
+    match choice:
+        case 1:
+            add_product = {}
+            add_product ['id'] = len(list_products) + 1
+            add_product ['name'] = input('Unesite naziv proizvoda: ')
+            add_product ['description'] = input('Unesite opis proizvoda: ')
+            add_product ['price'] = float(input('Unesite cijenu proizvoda: '))
 
+            list_products.append(add_product)
+            save_data (PRODUCTS_FILE, list_products)
+            print (f'\nUspjesno ste dodali proizvod\n')
+        case 2:
+            print ('Odaberite proizvod iz liste koji zelite izmjeniti: ')
+            print()
+            for i, product in enumerate (list_products):
+                print (f'{i+1}. ID: {product['id']} - Name: {product['name']} - Opis: {product['description']} - Cijena: {product['price']}')
+            
+            product_id = int(input ('Unesite ID proizvoda kojeg zelite promjeniti: '))
+
+            list_products [product_id-1]['name'] = input('Izmjenite naziv proizvoda: ')
+            list_products [product_id-1]['description'] = input('Izmjenite opis proizvoda: ')
+            list_products [product_id-1]['price'] = float(input('Izmjenite cijenu proizvoda: '))
+
+            save_data (PRODUCTS_FILE, list_products)
+
+            print ('Uspjesno ste izmjenili proizvod')
+            
 
 # TODO: Implementirajte funkciju za upravljanje kupcima.
-def manage_customers(customers):
+def manage_customers(customers:List):
     """
     Allows the user to add a new customer or view all customers.
     """
-    # Za dodavanje: omogući unos imena kupca, emaila i unos VAT ID-a
-    # Za pregled: prikaži listu svih kupaca
-    pass
+    # Za dodavanje: omogući unos imena kupca, emaila i unos VAT ID-a  DONE
+    # Za pregled: prikaži listu svih kupaca  DONE
+    print (f'\nUPRAVLJANJE KORISNICIMA:\n')
+    print (f'1. Dodavanje novog korisnika')
+    print (f'2. Ispis svih korisnika')
+    print()
+    list_customers = customers
+    choice = int(input ('Unesite odabir (1 ili 2): '))
+    match choice:
+        case 1:
+            add_customer = {}
+            add_customer ['name'] = input('Unesite ime pravne osobe kupca: ')
+            add_customer ['email'] = input('Unesite e-mail pravne osobe kupca: ')
+            add_customer ['vat_id'] = input('Unesite vat_id pravne osobe kupca: ')
+
+            list_customers.append(add_customer)
+            save_data (CUSTOMERS_FILE, list_customers)
+            print (f'\nUspjesno ste dodali korisnika\n')
+        case 2:
+            for i, customer in enumerate (list_customers):
+                print (f'{i+1}. Name: {customer['name']} - Email: {customer['email']} - vat ID: {customer['vat_id']}')
+
 
 
 # TODO: Implementirajte funkciju za prikaz ponuda.
@@ -63,6 +117,10 @@ def display_offers(offers):
     Display all offers, offers for a selected month, or a single offer by ID.
     """
     # Omogućite izbor pregleda: sve ponude, po mjesecu ili pojedinačna ponuda
+
+
+
+
     # Prikaz relevantnih ponuda na temelju izbora
     pass
 
