@@ -1,5 +1,5 @@
 import json
-from typing import List, Dict
+from typing import List
 
 
 OFFERS_FILE = "offers.json"
@@ -32,7 +32,23 @@ def create_new_offer(offers, products, customers: List):
     choosing products, and calculating totals.
     """
     # Omogućite unos kupca
+
+    list_customers = customers
+    for i, customer in enumerate (list_customers):
+        print (f'{i+1}. Name: {customer['name']} - Email: {customer['email']} - vat ID: {customer['vat_id']}')
     
+    id_customer = int(input ('Odaberite kupca po imenu: '))-1
+
+    list_customers[id_customer]
+
+
+
+
+
+
+
+
+
 
 
     # Izračunajte sub_total, tax i total
