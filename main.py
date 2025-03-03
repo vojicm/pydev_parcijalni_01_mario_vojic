@@ -26,7 +26,7 @@ def save_data(filename, data):
 
 
 # TODO: Implementirajte funkciju za kreiranje nove ponude.
-def create_new_offer(offers, products, customers: List):
+def create_new_offer(offers: List, products: List, customers: List):
     """
     Prompt user to create a new offer by selecting a customer, entering date,
     choosing products, and calculating totals.
@@ -37,23 +37,28 @@ def create_new_offer(offers, products, customers: List):
     for i, customer in enumerate (list_customers):
         print (f'{i+1}. Name: {customer['name']} - Email: {customer['email']} - vat ID: {customer['vat_id']}')
     
+
+    offer_number = len(offers) + 1
     id_customer = int(input ('Odaberite kupca po imenu: '))-1
+    costumer = list_customers[id_customer]['name']
+    date = input ('Unesite datum u formi "2024-11-01": ')
 
-    list_customers[id_customer]
+    print ('\nPopis proizvoda \n')
 
+    for i, product in enumerate (products):
+        print (f'{i+1}. ID: {product['id']} - Name: {product['name']} - Opis: {product['description']} - Cijena: {product['price']}')
+            
+    add_product = []
 
+    while True:
+        pass
 
-
-
-
-
-
-
+    
 
 
     # Izračunajte sub_total, tax i total
     # Dodajte novu ponudu u listu offers
-    pass
+    
 
 
 # TODO: Implementirajte funkciju za upravljanje proizvodima.
