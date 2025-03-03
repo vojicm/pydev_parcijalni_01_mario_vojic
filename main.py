@@ -51,14 +51,47 @@ def create_new_offer(offers: List, products: List, customers: List):
     add_product = []
 
     while True:
-        pass
 
-    
+        product_id = int(input ('Unesite id proizvoda kojeg zelite dodati kosaricu (za kraj upisite 0): '))-1
+        if product_id == -1:
+            break
+
+        product = products[product_id]
+
+        quantity = int(input ('Unesite kolicinu : '))
+
+        item_total = product['price']*quantity
+        sub_total = 0
+
+        add_product.append({
+            "id": product_id,
+            "product_name": product['name'],
+            "description": product['description'],
+            "price": product['price'],
+            "quantity": quantity,
+            "item_total": item_total
+        })
+        sub_total += item_total 
+
+   # Izračunajte sub_total, tax i total 
+    tax = sub_total * 0.25
+    total = sub_total + tax
 
 
-    # Izračunajte sub_total, tax i total
     # Dodajte novu ponudu u listu offers
     
+    offers.append({
+        "offer_number": offer_number,
+        "customer": costumer,
+        "date": date,
+        "items": add_product,
+        "sub_total": sub_total,
+        "tax": tax,
+        "total": total
+    })
+
+    save_data(OFFERS_FILE, offers)
+
 
 
 # TODO: Implementirajte funkciju za upravljanje proizvodima.
@@ -160,11 +193,6 @@ def display_offers(offers:List):
             for i, offer in enumerate (offers_list):
                 if i == ponuda_br-1:
                     print_offer(offer)
-
-
-
-
-    
 
 
 

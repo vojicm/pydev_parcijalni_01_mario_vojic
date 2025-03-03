@@ -212,23 +212,5 @@
         "sub_total": 700.0,
         "tax": 70.0,
         "total": 770.0
-    },
-    {
-        "offer_number": 8,
-        "customer": "Mario Vojic d.o.o. ",
-        "date": "2025-03-03",
-        "items": [
-            {
-                "id": 0,
-                "product_name": "Laptop",
-                "description": "15-inch display, 8GB RAM, 256GB SSD",
-                "price": 800.0,
-                "quantity": 2,
-                "item_total": 1600.0
-            }
-        ],
-        "sub_total": 1600.0,
-        "tax": 400.0,
-        "total": 2000.0
     }
 ]

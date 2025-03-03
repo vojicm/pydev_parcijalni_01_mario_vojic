@@ -3,19 +3,25 @@
         "id": 1,
         "name": "Laptop",
         "description": "15-inch display, 8GB RAM, 256GB SSD",
-        "price": 800.0
+        "price": 800.0,
+        "quantity": 1,
+        "item_total": 800.0
     },
     {
         "id": 2,
         "name": "Smartphone",
         "description": "6-inch display, 128GB storage",
-        "price": 500.0
+        "price": 500.0,
+        "quantity": 2,
+        "item_total": 1000.0
     },
     {
         "id": 3,
         "name": "Headphones",
         "description": "Noise-canceling, wireless",
-        "price": 50.0
+        "price": 50.0,
+        "quantity": 2,
+        "item_total": 100.0
     },
     {
         "id": 4,
@@ -93,6 +99,8 @@
         "id": 16,
         "name": "USB citac",
         "description": "Usb citac kartica itd",
-        "price": 25.0
+        "price": 25.0,
+        "quantity": 3,
+        "item_total": 75.0
     }
 ]
