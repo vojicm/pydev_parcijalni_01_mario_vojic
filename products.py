@@ -11,4 +11,4 @@ class Product:
         self.description = description
 
     def __repr__(self) -> str:
-        return f'Naziv: {self.name}'
+        return f'Naziv: {self.name}, Price: {self.price}, Destriptio: {self.name}'
