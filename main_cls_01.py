@@ -2,6 +2,8 @@ import products as pr
 import costumers as cs
 
 
+
+
 def main():
     products = []
     costumers_list = []
